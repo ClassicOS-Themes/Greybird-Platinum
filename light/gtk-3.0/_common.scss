@@ -1425,13 +1425,13 @@ headerbar {
   border-color: $borders_color;
   border-radius: 0;
 
-  @include headerbar_fill;
+  background-color: $win-frame-active-bg;
 
   &:backdrop {
     border-color: $backdrop_borders_color;
-    background-color: $bg_color;
+    background-color: $win-frame-inactive-bg;
     background-image: none;
-    box-shadow: inset 0 1px $top_hilight;
+    box-shadow: none;
 
     transition: $backdrop_transition;
   }
@@ -1684,8 +1684,8 @@ headerbar {
 .background:not(.tiled-right):not(.maximized):not(.solid-csd) .titlebar,
 .background:not(.tiled-bottom):not(.maximized):not(.solid-csd) .titlebar {
   &:backdrop, & {
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    border-top-left-radius:0;
+    border-top-right-radius: 0;
   }
 }
 
@@ -1696,8 +1696,8 @@ headerbar { // headerbar border rounding
   window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
       &:backdrop, & {
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0 ;
       }
     }
   }
@@ -2057,13 +2057,13 @@ menubar,
     padding: 3px 8px;
     border: 1px solid transparent;
 
-    &:hover { //Seems like it :hover even with keyboard focus
+    &:hover{ //Seems like it :hover even with keyboard focus
+      background-color: $menu_highlight_color;
       background-image: linear-gradient(to bottom,
-                                        shade($selected_bg_color, 1.2),
-                                        shade($selected_bg_color, 1.0)
-                                        );
-      color: $selected_fg_color;
-      border-color: shade($selected_bg_color, 1.1);
+                                        shade($menu_highlight_color 1.0),
+                                        shade($menu_highlight_color, 0.9));
+      color: $menu_text_highlight_color;
+      border-color: $menu_highlight_color;
     }
 
     &:disabled {
@@ -2079,7 +2079,7 @@ menu,
   margin: 4px;
   padding: 2px 0px;
   background-color: $menu_color;
-  border: 1px solid $borders_color; // adds borders in a non composited env
+  border: none; //1px solid $borders_color; // adds borders in a non composited env
 
   .csd & { border: none; }  // axes borders in a composited env
 
@@ -2091,11 +2091,10 @@ menu,
     padding: 4px 6px;
     text-shadow: none;
 
-    &:hover {
-      color: $selected_fg_color;
-      background-image: linear-gradient(to bottom, shade($selected_bg_color, 1.2), shade($selected_bg_color, 1.0));
-      box-shadow: inset 1px 1px shade($selected_bg_color, 0.8),
-                  inset -1px -1px shade($selected_bg_color, 0.8);
+    &:hover{
+      color: $menu_text_highlight_color;
+      background-color: $menu_highlight_color;
+      background-image: linear-gradient(to bottom, $menu_highlight_color, shade($menu_highlight_color, 0.9));
     }
 
     &:disabled {
@@ -2129,6 +2128,7 @@ menu,
     // https://bugzilla.gnome.org/show_bug.cgi?id=767058
     label { &:dir(rtl), &:dir(ltr) { color: inherit; }}
   }
+  box-shadow: $menu-border;
 
   // overflow arrows
   > arrow {
@@ -4271,6 +4271,7 @@ colorswatch {
       border-bottom-right-radius: $_colorswatch_radius;
     }
   }
+  box-shadow: $win-box-frame-inactive;
 
   &.dark overlay {
     color: $selected_fg_color;
@@ -4389,7 +4390,7 @@ colorchooser .popover.osd { border-radius: 5px; }
  * Window Decorations *
  *********************/
 decoration {
-  border-radius: 7px 7px 0 0;
+  border-radius: none;
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0px;
 
@@ -4398,9 +4399,7 @@ decoration {
   $_wm_border: if($variant=='light', transparentize(black, 0.77), transparentize($borders_color, 0.1));
   $_wm_border_backdrop: if($variant=='light', transparentize(black, 0.82), transparentize($borders_color, 0.1));
 
-  box-shadow: 0 3px 9px 1px transparentize(black, 0.5),
-              0 0 0 1px $_wm_border; //doing borders with box-shadow
-
+	box-shadow: $win-frame-active;
   // FIXME rationalize shadows
 
   // this is used for the resize cursor area
@@ -4411,9 +4410,8 @@ decoration {
     // change when we go to backdrop, to prevent jumping windows.
     // The biggest shadow should be in the same order then in the active state
     // or the jumping will happen during the transition.
-    box-shadow: 0 3px 9px 1px transparent,
-                0 2px 6px 2px transparentize(black, 0.8),
-                0 0 0 1px $_wm_border_backdrop;
+
+    box-shadow: $win-frame-inactive;
     transition: $backdrop_transition;
   }
 

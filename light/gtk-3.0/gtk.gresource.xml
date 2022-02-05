@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <gresources>
-	<gresource prefix='/org/shimmerproject/greybird/gtk-3.0'>
+	<gresource prefix='/org/classicos/greybird-platinum/gtk-3.0'>
 		<file preprocess='to-pixdata'>assets/bullet-symbolic.svg</file>
 		<file preprocess='to-pixdata'>assets/bullet-symbolic.symbolic.png</file>
 		<file preprocess='to-pixdata'>assets/checkbox-active-selectionmode.png</file>

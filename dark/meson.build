@@ -1,6 +1,6 @@
-theme_path = join_paths(get_option('datadir'), 'themes/Greybird-dark')
-a11y_theme_path = join_paths(get_option('datadir'), 'themes/Greybird-dark-accessibility')
-compact_theme_path = join_paths(get_option('datadir'), 'themes/Greybird-dark-compact')
+theme_path = join_paths(get_option('datadir'), 'themes/Greybird-Platinum-dark')
+a11y_theme_path = join_paths(get_option('datadir'), 'themes/Greybird-Platinum-dark-accessibility')
+compact_theme_path = join_paths(get_option('datadir'), 'themes/Greybird-Platinum-dark-compact')
 
 #
 # GTK+-3.0 Files
@@ -30,7 +30,7 @@ install_subdir('gtk-3.0/assets', install_dir: theme_path / 'gtk-3.0')
 install_subdir('gtk-3.0/apps', install_dir: theme_path / 'gtk-3.0')
 install_data('gtk-3.0/settings.ini', install_dir : join_paths(theme_path, 'gtk-3.0'))
 
-theme_deps += custom_target('Greybird-Dark',
+theme_deps += custom_target('Greybird-Platinum-Dark',
                             input: 'gtk-3.0/gtk-contained.scss',
                             output: 'gtk.css',
                             command: [
@@ -41,7 +41,7 @@ theme_deps += custom_target('Greybird-Dark',
                             install: true,
                             install_dir: join_paths(theme_path, 'gtk-3.0'))
 
-theme_deps += custom_target('Greybird-Dark-Dark',
+theme_deps += custom_target('Greybird-Platinum-Dark-Dark',
                             input: 'gtk-3.0/gtk-contained-dark.scss',
                             output: 'gtk-dark.css',
                             command: [
@@ -71,7 +71,7 @@ gtk_dark_gresources = custom_target('gtk-dark-gresources',
 
 # we don't want to install these in the flatpak
 if not get_option('flatpak')
-    install_data('Greybird.emerald', rename: 'Greybird-dark.emerald', install_dir : theme_path)
+    install_data('Greybird-Platinum.emerald', rename: 'Greybird-Platinum-dark.emerald', install_dir : theme_path)
     install_subdir('gtk-2.0', install_dir : theme_path)
     install_subdir('gnome-shell', install_dir : theme_path)
     install_subdir('metacity-1', install_dir : theme_path)
