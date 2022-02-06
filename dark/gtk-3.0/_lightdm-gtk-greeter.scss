@@ -31,13 +31,10 @@ $variant: 'dark';
     #shutdown_dialog,
     #restart_dialog {
         border-style: none;
-        border-radius: 5px;
-        background-color: $base_color;
+        border-radius: 0;
+        background-color: $bg_color;
         color: $fg_color;
-        box-shadow: inset 1px 0 shade($base_color, 0.6),
-                    inset -1px 0 shade($base_color, 0.6),
-                    inset 0 1px shade($base_color, 0.6),
-                    inset 0 -1px shade($base_color, 0.6);
+        box-shadow: $win-frame-active;
 
         button {
             padding: 3px 15px;
