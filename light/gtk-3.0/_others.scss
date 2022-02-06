@@ -7,3 +7,6 @@ window.background.chromium {
     border-color: $borders_color;
   }
 }
+widget#title-box-container entry.suggestion.url_entry{
+  min-height: 26px; // Fix for epiphany browser's address bar
+}
