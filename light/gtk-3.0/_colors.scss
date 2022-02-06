@@ -1,10 +1,10 @@
 // When color definition differs for dark and light variant
 // it gets @if ed depending on $variant
   /* Window Frames, Active */
-  $win-frame-active-bg: #ccc;
-  $win-frame-active-hl:#fff;
-  $win-frame-active-sh:#999;
-  $win-frame-active-handle-sh:#777;
+  $win-frame-active-bg:if($variant == 'light', #ccc,#666);
+  $win-frame-active-hl:if($variant == 'light', #fff,#999);
+  $win-frame-active-sh:if($variant == 'light', #999,#666);
+  $win-frame-active-handle-sh:if($variant == 'light',#777,#444);
   $win-frame-active-handle-hl:#000;
   $win-frame-active-border: #000;
   $win-frame-active-text: #000;
@@ -17,33 +17,33 @@
   $win-frame-active-btn-gradient-btmright: #fff;
 
   /* Window Content (background area), Active */
-  $win-cnt-active-bg: #ddd;
-  $win-cnt-active-hl: #fff;
+  $win-cnt-active-bg: if($variant == 'light', #ddd,#666);
+  $win-cnt-active-hl: if($variant == 'light', #fff,#aaa);
   $win-cnt-active-sh: #aaa;
-  $win-cnt-active-fg: #000;
+  $win-cnt-active-fg: if($variant == 'light', #000,#fff);
 
   /* Window Frame, Inactive */
-  $win-frame-inactive-bg: #ddd;
-  $win-frame-inactive-fg: #777;
-  $win-frame-inactive-border: #555;
+  $win-frame-inactive-bg: if($variant == 'light', #ddd,#666);
+  $win-frame-inactive-fg: if($variant == 'light', #777, #ddd);
+  $win-frame-inactive-border: if($variant == 'light', #555, #555);
   
   /* Window Content, Inactive */
   $win-cnt-inactive-bg: #eee;
   $win-cnt-inactive-fg: #777;
 
-    /* Menus */
-    $menu-sel-bg: #339;
-    $menu-sel-fg: #fff;
-    $menu-sel-hl: #66c;
-    $menu-sel-sh: #008;
-    $menu-border: #000;
-    $menu-shadow: #222;
-    $menu-sep-sh: #888;
-    $menu-inner-sh: #999;
-    $menu-inner-hl: #fff;
-    $menu-disabled-fg: #777;
-    $menu-fg: #000;
-    $menu-bg: #ddd;
+  /* Menus */
+  $menu-sel-bg: #339;
+  $menu-sel-fg: #fff;
+  $menu-sel-hl: #66c;
+  $menu-sel-sh: #008;
+  $menu-border: #000;
+  $menu-shadow: #222;
+  $menu-sep-sh: #888;
+  $menu-inner-sh: #999;
+  $menu-inner-hl: #fff;
+  $menu-disabled-fg: #777;
+  $menu-fg: #000;
+  $menu-bg: #ddd;
 $base_color: if($variant == 'light', #ffffff, #222222);
 $text_color: if($variant == 'light', #222222, #ffffff);
 $bg_color: if($variant == 'light', #dddddd, #444444);

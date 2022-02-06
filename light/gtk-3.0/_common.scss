@@ -2052,7 +2052,7 @@ menubar,
     &:hover{ //Seems like it :hover even with keyboard focus
       background-color: $menu_highlight_color;
       background-image: linear-gradient(to bottom,
-                                        shade($menu_highlight_color 1.0),
+                                        shade($menu_highlight_color, 1.0),
                                         shade($menu_highlight_color, 0.9));
       color: $menu_text_highlight_color;
       border-color: $menu_highlight_color;
@@ -2086,7 +2086,7 @@ menu,
     &:hover{
       color: $menu_text_highlight_color;
       background-color: $menu_highlight_color;
-      background-image: linear-gradient(to bottom, $menu_highlight_color, shade($menu_highlight_color, 0.9));
+      background-image: linear-gradient(to bottom,shade( $menu_highlight_color, 1), shade($menu_highlight_color, 0.9));
     }
 
     &:disabled {
@@ -3784,16 +3784,10 @@ messagedialog { // Message Dialog styling
     background-image: none;
     background-color: $bg_color;
     border-style: none;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
   }
 
   &.csd { // rounded bottom border styling for csd version
-    &.background {
-      // bigger radius for better antialiasing
-      border-bottom-left-radius: 9px;
-      border-bottom-right-radius: 9px;
-    }
+
 
     .dialog-action-area {
       padding: 0px;
@@ -3806,14 +3800,14 @@ messagedialog { // Message Dialog styling
 
         &:first-child{
           border-left-style: none;
-          border-bottom-left-radius: 7px;
-          -gtk-outline-bottom-left-radius: 5px;
+          //border-bottom-left-radius: 7px;
+          //-gtk-outline-bottom-left-radius: 5px;
         }
 
-        &:last-child {
-          border-bottom-right-radius: 7px;
-          -gtk-outline-bottom-right-radius: 5px;
-        }
+       // &:last-child {
+          //border-bottom-right-radius: 7px;
+          //-gtk-outline-bottom-right-radius: 5px;
+       // }
       }
     }
   }
@@ -4382,7 +4376,7 @@ colorchooser .popover.osd { border-radius: 5px; }
  * Window Decorations *
  *********************/
 decoration {
-  border-radius: none;
+  border-radius: 0;
   // lamefun trick to get rounded borders regardless of CSD use
   border-width: 0px;
 
@@ -4418,7 +4412,13 @@ decoration {
   .popup & { box-shadow: none; }
 
   // server-side decorations as used by mutter
-  .ssd & { box-shadow: 0 0 0 1px $_wm_border; } //just doing borders, wm draws actual shadows
+  .ssd & { 
+    box-shadow: $win-frame-active;
+    
+    &:backdrop {
+      box-shadow: $win-frame-inactive;
+    }
+  } //just doing borders, wm draws actual shadows
 
   .csd.popup & {
     border-radius: 0;
@@ -4432,7 +4432,7 @@ decoration {
   }
 
   messagedialog.csd & {
-    border-radius: 7px;
+    border-radius: 0;
     box-shadow: 0 1px 2px transparentize(black, 0.8),
                   0 0 0 1px transparentize($_wm_border,0.1);
   }
