@@ -49,6 +49,8 @@ openSUSE:
 
 ### Build and Install ###
 
+For Arch Linux Users, a PKGBUILD file exists at https://github.com/ClassicOS-Themes/Greybird-Platinum-PKGBUILD
+
 #### Local (User) Install ####
 
 ```
