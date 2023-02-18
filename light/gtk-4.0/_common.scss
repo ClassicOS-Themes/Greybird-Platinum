@@ -1770,50 +1770,6 @@ headerbar {
   }
 }
 
-.background:not(.tiled):not(.maximized):not(.solid-csd) .titlebar,
-.background:not(.tiled-top):not(.maximized):not(.solid-csd) .titlebar,
-.background:not(.tiled-left):not(.maximized):not(.solid-csd) .titlebar,
-.background:not(.tiled-right):not(.maximized):not(.solid-csd) .titlebar,
-.background:not(.tiled-bottom):not(.maximized):not(.solid-csd) .titlebar {
-  &:backdrop, & {
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-  }
-}
-
-headerbar { // headerbar border rounding
-  window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) separator:first-child + &, // tackles the paned container case
-  window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) &:first-child { &:backdrop, & { border-top-left-radius: 7px; }}
-  window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) &:last-child { &:backdrop, & { border-top-right-radius: 7px; }}
-  window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) stack & { // tackles the stacked headerbars case
-    &:first-child, &:last-child {
-      &:backdrop, & {
-        border-top-left-radius: 7px;
-        border-top-right-radius: 7px;
-      }
-    }
-  }
-
-  window.tiled &,
-  window.tiled-top &,
-  window.tiled-right &,
-  window.tiled-bottom &,
-  window.tiled-left &,
-  window.maximized &,
-  window.fullscreen &,
-  window.solid-csd & {
-    &, &:backdrop {
-      &,
-      &:first-child,
-      &:last-child,
-      &:only-child {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-      }
-    }
-  }
-}
-
 .titlebar:not(headerbar) {
   window.csd > & {
     // in csd we assume every titlebar is a headerbar so reset anything, this is needed for split toolbars cases
@@ -3898,16 +3854,9 @@ window.dialog.message { // Message Dialog styling
     background-image: none;
     background-color: $bg_color;
     border-style: none;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
   }
 
   &.csd { // rounded bottom border styling for csd version
-    &.background {
-      // bigger radius for better antialiasing
-      border-bottom-left-radius: 9px;
-      border-bottom-right-radius: 9px;
-    }
 
     .dialog-action-area {
       padding: 0px;
@@ -3920,13 +3869,6 @@ window.dialog.message { // Message Dialog styling
 
         &:first-child{
           border-left-style: none;
-          border-bottom-left-radius: 7px;
-          -gtk-outline-bottom-left-radius: 5px;
-        }
-
-        &:last-child {
-          border-bottom-right-radius: 7px;
-          -gtk-outline-bottom-right-radius: 5px;
         }
       }
     }
