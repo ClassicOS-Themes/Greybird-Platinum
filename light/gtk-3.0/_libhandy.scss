@@ -61,18 +61,6 @@ $menu_radius: 5px;
     }
   }
   
-  // Roundness on unified window decoration
-  // https://gitlab.gnome.org/GNOME/libhandy/-/issues/339
-  window.csd.unified:not(.solid-csd):not(.fullscreen) {
-    &:not(.tiled):not(.tiled-top):not(.tiled-bottom):not(.tiled-left):not(.tiled-right):not(.maximized) {
-      &,
-      > decoration,
-      > decoration-overlay {
-        border-radius: 7px;
-      }
-    }
-  }
-  
   // HdyComboRow
   popover.combo {
     padding: 0px;
