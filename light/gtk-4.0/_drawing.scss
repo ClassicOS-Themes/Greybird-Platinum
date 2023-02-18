@@ -502,7 +502,7 @@
   @else { box-shadow: none; }
 }
 
-@mixin headerbar_fill($c:$headerbar_color, $hc:$top_hilight, $ov: none) {
+@mixin headerbar_fill($c:$win-frame-active-bg, $hc:$top_hilight, $ov: none) {
 //
 // headerbar fill
 //
@@ -510,14 +510,7 @@
 // $hc: top highlight color
 // $ov: a background layer for background shorthand (hence no commas!)
 //
-  $gradient: linear-gradient(to bottom, $c, shade($c, 0.88));
-
-  @if $variant == 'dark' { $gradient: linear-gradient(to top, darken($c, 3%), darken($c, 1%) 2px, $c 3px); }
-
-  @if $ov != none { background: $c $ov, $gradient; }
-  @else { background: $c $gradient; }
-
-  box-shadow: inset 0 1px $hc; // top highlight
+  background: $c;
 }
 
 @mixin overshoot($p, $t:normal, $c:$fg_color) {
@@ -638,3 +631,33 @@
   border: none;
   box-shadow: none;
 }
+
+
+$win-frame-active:  2px 2px 0px 2px $win-frame-active-border,
+                    0px 0px 0px 3px $win-frame-active-border,
+                   0px 0px 0px 2px $win-frame-active-sh,
+                   -1px 0px 0px 1px $win-frame-active-hl,
+                   0px -1px 0px 1px $win-frame-active-hl,
+                   -1px -1px 0px 1px $win-frame-active-hl,	
+                   0px 0px 0px 1px $win-frame-active-bg;
+$win-frame-inactive: 
+                   2px 2px 0px 2px $win-frame-inactive-border,
+                   0px 0px 0px 3px $win-frame-inactive-border,
+                   0px 0px 0px 2px $win-frame-inactive-bg;
+
+$win-box-frame-active: 0px 0px 0px 2px $win-frame-active-bg,
+                      -1px -1px 0px 1px $win-frame-active-sh,
+                      1px 1px 0px 1px $win-frame-active-hl,
+                      0px 0px 0px 1px $win-frame-active-border;
+                      
+$win-box-frame-inactive: 0px 0px 0px 1px $win-frame-inactive-border;
+$menu-border: 2px 2px 0px -1px $menu-shadow,
+							inset -1px -1px 0px 1px $menu-inner-sh,
+							inset 1px 1px 0px 1px $menu-inner-hl,
+							inset 0px 0px 0px 1px $menu-border;
+
+$raised-border:inset 1px 1px 0px 0px $menu-alt-hl,
+inset -1px -1px 0px 0px $menu-alt-sh;
+$sunken-border:
+inset -1px -1px 0px 0px $menu-alt-hl,
+inset 1px 1px 0px 0px $menu-alt-sh;
