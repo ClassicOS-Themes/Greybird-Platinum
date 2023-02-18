@@ -239,7 +239,7 @@ XfdesktopIconView.view {
     border-radius: 12px;
     /* Set the application icon- and preview-size to 64px */
     -XfwmTabwinWidget-icon-size: 64px;
-    -XfwmTabwinWidget-preview-size: 64px;
+    -XfwmTabwinWidget-preview-size: 128px;
 
     button {
         background-image: none;
@@ -254,7 +254,11 @@ XfdesktopIconView.view {
             background: transparentize($fg_color, 0.7);
         }
         &:hover {
-            background: mix(black, $selected_bg_color, 40%);
+            background: transparentize($bg_color, 0.9);
+            box-shadow: inset 0 -1px gtkalpha(white, 0.15),
+                        inset 1px 0 gtkalpha(white, 0.15),
+                        inset -1px 0 gtkalpha(white, 0.15),
+                        inset 0 1px gtkalpha(white, 0.15);
             transition-duration: 50ms;
         }
     }
