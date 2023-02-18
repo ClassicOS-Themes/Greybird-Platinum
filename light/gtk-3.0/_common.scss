@@ -1685,8 +1685,8 @@ headerbar {
 
 headerbar { // headerbar border rounding
   window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) separator:first-child + &, // tackles the paned container case
-  window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) &:first-child { &:backdrop, & { border-top-left-radius: 7px; }}
-  window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) &:last-child { &:backdrop, & { border-top-right-radius: 7px; }}
+  window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) &:first-child { &:backdrop, & { border-top-left-radius: 0; }}
+  window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) &:last-child { &:backdrop, & { border-top-right-radius: 0; }}
   window:not(.tiled):not(.maximized):not(.fullscreen):not(.solid-csd) stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
       &:backdrop, & {
@@ -3800,14 +3800,8 @@ messagedialog { // Message Dialog styling
 
         &:first-child{
           border-left-style: none;
-          //border-bottom-left-radius: 7px;
-          //-gtk-outline-bottom-left-radius: 5px;
         }
 
-       // &:last-child {
-          //border-bottom-right-radius: 7px;
-          //-gtk-outline-bottom-right-radius: 5px;
-       // }
       }
     }
   }
