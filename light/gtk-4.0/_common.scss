@@ -9,7 +9,7 @@ $button_transition: all 200ms $ease-out-quad;
 $button_radius: 3px;
 $menu_radius: 5px;
 $menu_margin: $menu_radius; //margin around menuitems & sidebar items
-$window_radius: $button_radius + 4;
+$window_radius: 0;
 $popover_radius: $button_radius + 5;
 
 selection { @extend %selected_items; }
