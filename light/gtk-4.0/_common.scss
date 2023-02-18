@@ -4728,3 +4728,18 @@ popover.emoji-completion contents row box {
 popover.emoji-completion .emoji:hover {
   background: $popover_hover_color;
 }
+
+decoration,
+window decoration,
+window>decoration,
+window.csd,
+window.csd decoration,
+window.unified,
+window.unified decoration
+{
+  border-radius: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
