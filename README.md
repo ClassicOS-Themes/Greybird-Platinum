@@ -5,7 +5,7 @@ Modification of the Greybird theme with elements of the 90s-era "Platinum" look.
 ![Screenshot of gtk3-widget-factory](Greybird-Platinum-1.png "GTK3 Widget Factory")
 ![Screenshot of desktop](Greybird-Platinum.png "Desktop")
 
-Only the GTK3 Theme was changed, for now at least. 
+Only the GTK3 & 4 Themes were changed, for now at least. 
 
 About Greybird
 ----------------------
