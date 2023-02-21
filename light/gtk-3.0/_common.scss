@@ -4706,3 +4706,7 @@ window.unified decoration
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
+
+*{
+  -gtk-icon-style: regular; // disable symbolic icons 
+}
